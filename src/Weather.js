@@ -1,50 +1,92 @@
-import React from "react";
-import Search from "./Search";
+import React, { useState} from "react";
+import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
-  let weatherData = {
-    city: "arrecife",
-    temperature: 22,
-    date: "tuesday 10:00",
-    description: "clear sky",
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
-    humidity: 80,
-    wind: 7,
-    feel: 21
-  };
-  return (
-    <div className="Weather">
-      <div className=" container mt-2 weather-app-container">
-        <div className="header text-center pb-2">
-          Hello! Today´s {weatherData.date}
-        </div>
-        <Search />
-        <div className="row pb-2">
-          <div className="col text-center">
-            <h1 className="heading">{weatherData.city}</h1>
-            <div className="weather-temperature">
-              <img src={weatherData.imgUrl} alt={weatherData.description} />
-              <span className="temp">{weatherData.temperature}ºC</span>
+    let [city, setCity] = useState(null);
+    let [loaded, setLoaded] = useState(false);
+    let [weather, setWeather] = useState({});
+  
+    function showWeather(response) {
+      setLoaded(true);
+      console.log(response.data);
+      setWeather({
+        city: response.data.name,
+        temperature: Math.round(response.data.main.temp),
+        feel: Math.round(response.data.main.feels_like),
+        description: response.data.weather[0].description,
+        wind: Math.round(response.data.wind.speed),
+        humidity: response.data.main.humidity,
+        icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+      });
+    }
+  
+    function handleSubmit(event) {
+      event.preventDefault();
+      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=728f15542e17d610b9afb1e420062506&units=metric`;
+      axios.get(apiUrl).then(showWeather);
+    }
+  
+    function updateCity(event) {
+      setCity(event.target.value);
+    }
+    
+
+let form = (<form className="search-form pb-2"onSubmit={handleSubmit}>
+<div className="row">
+  <div className="col-8">
+    <input
+    onChange={updateCity}
+      autoFocus="on"
+      id="search-input"
+      type="search"
+      className="form-control"
+      placeholder="enter a city.."
+    />
+  </div>
+  <div className="col-4">
+    <button type="submit" className="btn w-100 button-submit btn-success">
+      search
+    </button>
+  </div>
+</div>
+</form>)
+  
+    return (
+        <div className="Weather">
+          <div className=" container mt-2 weather-app-container">
+            <div className="header text-center pb-2">
+              Hello! Today´s {weather.date}
+            </div>
+            <div>{form}</div>
+            <div className="row pb-2">
+              <div className="col text-center">
+                <h1 className="heading">{weather.city}</h1>
+                <div className="weather-temperature">
+                  <img src={weather.icon} alt={weather.description} />
+                  <span className="temp">{weather.temperature}ºC</span>
+                </div>
+              </div>
+            </div>
+    
+            <div className="row pb-2">
+              <div className="col d-flex justify-content-evenly">
+                <ul>
+                  <li>{weather.description}</li>
+                  <li>feel {weather.feel}ºC</li>
+                </ul>
+              </div>
+              <div className="col d-flex justify-content-evenly">
+                <ul>
+                  <li>humidity {weather.humidity}%</li>
+                  <li>wind {weather.wind}m/s</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="row pb-2">
-          <div className="col d-flex justify-content-evenly">
-            <ul>
-              <li>{weatherData.description}</li>
-              <li>feel {weatherData.feel}ºC</li>
-            </ul>
-          </div>
-          <div className="col d-flex justify-content-evenly">
-            <ul>
-              <li>humidity {weatherData.humidity}%</li>
-              <li>wind {weatherData.wind}m/s</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+      );
+  
+  
+ 
 }
