@@ -3,12 +3,13 @@
     max-width: 500px;
     color: white;
     background-image: linear-gradient(to top, #9be15d 0%, #00e3ae 100%);
-    font-family: "Nanum Gothic Coding", monospace;
     border: 2px solid grey;
+    font-family: 'Happy Monkey', cursive;
     border-radius: 10px;
   }
   .header {
     font-size: 1.5em;
+    font-weight: 700;
   }
   .heading {
     font-size: 40px;
@@ -22,5 +23,10 @@
   }
   ul > li {
     list-style: none;
+  }
+  .coder{
+    font-size: 12px;
+    font-family: monospace;
+
   }
   
