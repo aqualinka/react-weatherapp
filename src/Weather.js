@@ -30,59 +30,61 @@ export default function Weather() {
     }
   
     return (
-        <div className="Weather">
-          <div className=" container mt-2 weather-app-container">
-            <div className="header text-center pb-2">
+      <div className="Weather">
+        <div className=" container mt-2 weather-app-container">
+          <div className="header text-center pb-2">
              Welcome to my Weather App
-            </div>
-            <div>
+          </div>
+
+          <div>
             <form className="search-form pb-2"onSubmit={handleSubmit}>
-<div className="row">
-  <div className="col-8">
-    <input
-    onChange={updateCity}
-      autoFocus="on"
-      id="search-input"
-      type="search"
-      className="form-control"
-      placeholder="type a city.."
-    />
-  </div>
-  <div className="col-4">
-    <button type="submit" className="btn w-100 button-submit btn-success">
-      search
-    </button>
-  </div>
-</div>
-</form>
-            </div>
-            <div className="row pb-2">
-              <div className="col text-center">
-                <h1 className="heading">{weather.city}</h1>
-                <div className="weather-temperature">
-                  <img src={weather.icon} alt={weather.description} />
-                  <span className="temp">{weather.temperature}ºC</span>
+              <div className="row">
+                <div className="col-8">
+                  <input
+                    onChange={updateCity}
+                      autoFocus="on"
+                      id="search-input"
+                      type="search"
+                      className="form-control"
+                      placeholder="type a city.."
+                    />
+                </div>
+                <div className="col-4">
+                  <button type="submit" className="btn w-100 button-submit btn-success">
+                    search
+                  </button>
                 </div>
               </div>
-            </div>
-    
-            <div className="row pb-2">
-              <div className="col d-flex justify-content-evenly">
-                <ul>
-                  <li>{weather.description}</li>
-                  <li>feel {weather.feel}ºC</li>
-                </ul>
-              </div>
-              <div className="col d-flex justify-content-evenly">
-                <ul>
-                  <li>humidity {weather.humidity}%</li>
-                  <li>wind {weather.wind}m/s</li>
-                </ul>
+            </form>
+          </div>
+
+          <div className="row pb-2">
+            <div className="col text-center">
+              <h1 className="heading">{weather.city}</h1>
+              <div className="weather-temperature">
+                <img src={weather.icon} alt={weather.description} />
+                <span className="temp">{weather.temperature}ºC</span>
               </div>
             </div>
           </div>
+    
+          <div className="row pb-2">
+            <div className="col d-flex justify-content-evenly">
+              <ul>
+                <li>{weather.description}</li>
+                <li>feel {weather.feel}ºC</li>
+              </ul>
+            </div>
+            <div className="col d-flex justify-content-evenly">
+              <ul>
+                <li>humidity {weather.humidity}%</li>
+                <li>wind {weather.wind}m/s</li>
+              </ul>
+            </div>  
+          </div>
         </div>
-      );
+      </div>   
+    );
   
   
  
