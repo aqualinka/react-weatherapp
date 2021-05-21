@@ -32,11 +32,11 @@ export default function Weather() {
     return (
       <div className="Weather">
         <div className=" container mt-2 weather-app-container">
-          <div className="header text-center pb-2">
+          <div className="header text-center pt-2 pb-2">
              Welcome to my Weather App
           </div>
 
-          <div>
+          <div className="mt-2">
             <form className="search-form pb-2"onSubmit={handleSubmit}>
               <div className="row">
                 <div className="col-8">
@@ -81,6 +81,10 @@ export default function Weather() {
                 <li>wind {weather.wind}m/s</li>
               </ul>
             </div>  
+          </div>
+          <div className="coder text-center">
+          
+            <a href="https://github.com/aqualinka/react-weatherapp" target="_blank" >open-source-code </a>by Michaela Kovacova and hosted on <a href="https://happy-wing-013044.netlify.app" target="_blank">Netlify</a>
           </div>
         </div>
       </div>   
