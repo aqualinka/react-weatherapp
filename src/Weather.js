@@ -4,11 +4,9 @@ import "./Weather.css";
 
 export default function Weather() {
     let [city, setCity] = useState(null);
-   // let [loaded, setLoaded] = useState(false);
     let [weather, setWeather] = useState({});
   
     function showWeather(response) {
-    //  setLoaded(true);
       console.log(response.data);
       setWeather({
         city: response.data.name,
