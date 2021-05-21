@@ -4,11 +4,11 @@ import "./Weather.css";
 
 export default function Weather() {
     let [city, setCity] = useState(null);
-    let [loaded, setLoaded] = useState(false);
+   // let [loaded, setLoaded] = useState(false);
     let [weather, setWeather] = useState({});
   
     function showWeather(response) {
-      setLoaded(true);
+    //  setLoaded(true);
       console.log(response.data);
       setWeather({
         city: response.data.name,
@@ -30,9 +30,15 @@ export default function Weather() {
     function updateCity(event) {
       setCity(event.target.value);
     }
-    
-
-let form = (<form className="search-form pb-2"onSubmit={handleSubmit}>
+  
+    return (
+        <div className="Weather">
+          <div className=" container mt-2 weather-app-container">
+            <div className="header text-center pb-2">
+             Welcome to my Weather App
+            </div>
+            <div>
+            <form className="search-form pb-2"onSubmit={handleSubmit}>
 <div className="row">
   <div className="col-8">
     <input
@@ -41,7 +47,7 @@ let form = (<form className="search-form pb-2"onSubmit={handleSubmit}>
       id="search-input"
       type="search"
       className="form-control"
-      placeholder="enter a city.."
+      placeholder="type a city.."
     />
   </div>
   <div className="col-4">
@@ -50,15 +56,8 @@ let form = (<form className="search-form pb-2"onSubmit={handleSubmit}>
     </button>
   </div>
 </div>
-</form>)
-  
-    return (
-        <div className="Weather">
-          <div className=" container mt-2 weather-app-container">
-            <div className="header text-center pb-2">
-              Hello! Today´s {weather.date}
+</form>
             </div>
-            <div>{form}</div>
             <div className="row pb-2">
               <div className="col text-center">
                 <h1 className="heading">{weather.city}</h1>
