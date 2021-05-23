@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import axios from "axios";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Weather.css";
 
 export default function Weather() {
@@ -30,8 +31,8 @@ export default function Weather() {
     }
   
     return (
-      <div className="Weather">
-        <div className=" container mt-2 weather-app-container">
+      <div className="Weather container">
+        <div className="mt-2 weather-app-container">
           <div className="header text-center pt-2 pb-2">
              Welcome to my Weather App
           </div>
@@ -42,7 +43,7 @@ export default function Weather() {
                 <div className="col-8">
                   <input
                     onChange={updateCity}
-                      autoFocus="on"
+                      autoFocus={true}
                       id="search-input"
                       type="search"
                       className="form-control"
@@ -84,7 +85,7 @@ export default function Weather() {
           </div>
           <div className="coder text-center">
           
-            <a href="https://github.com/aqualinka/react-weatherapp" target="_blank" >open-source-code </a>by Michaela Kovacova and hosted on <a href="https://happy-wing-013044.netlify.app" target="_blank">Netlify</a>
+            <a href="https://github.com/aqualinka/react-weatherapp" target="_blank" rel="noreferrer">open-source-code </a>by Michaela Kovacova and hosted on <a href="https://happy-wing-013044.netlify.app" target="_blank"rel="noreferrer">Netlify</a>
           </div>
         </div>
       </div>   
