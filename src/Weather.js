@@ -31,8 +31,8 @@ export default function Weather() {
     }
   
     return (
-      <div className="Weather container">
-        <div className="mt-2 weather-app-container">
+      <div className="Weather">
+        <div className=" container mt-2 weather-app-container">
           <div className="header text-center pt-2 pb-2">
              Welcome to my Weather App
           </div>
