@@ -1,0 +1,15 @@
+.temp, .unit {
+    font-size: 40px;
+  }
+  .fahrenheit{
+      position: relative;
+      top: -16px;
+      left: 5px;
+      font-size: 16px;
+      color: #1d5a3b;
+  }
+  .fahrenheit:hover{
+      color:  #1d5a3b;
+      text-decoration: underline;
+    
+  }

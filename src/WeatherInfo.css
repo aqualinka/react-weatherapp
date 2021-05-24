@@ -1,10 +1,6 @@
 .heading {
     font-size: 40px;
-    margin: 0;
-  }
- 
-  .temp {
-    font-size: 40px;
+    margin: 0 auto;
   }
   ul {
     padding: 0;
