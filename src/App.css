@@ -2,3 +2,10 @@
     font-size: 12px;
     font-family: monospace;
 }
+a{
+    text-decoration: none;
+    color: #0f68c7;
+}
+a:hover{
+    text-decoration: underline;
+}

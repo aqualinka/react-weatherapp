@@ -38,7 +38,7 @@ export default function Weather(props) {
   if(weatherData.ready){
     return (
       <div className="Weather">
-        <div className="mt-2 weather-app-container">
+        <div className="mt-2 container weather-app-container">
           <div className="header text-center py-2">
              Welcome to Your Weather App
           </div>
