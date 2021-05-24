@@ -9,7 +9,7 @@ export default function App() {
       <div className="container">
         <Weather defaultCity="Arrecife"/>
         <div className="coder text-center">        
-          <a href="https://github.com/aqualinka/react-weatherapp" target="_blank" rel="noreferrer">open-source-code
+          <a href="https://github.com/aqualinka/react-weatherapp" target="_blank" rel="noreferrer">open-source on
           {" "}<GoMarkGithub />{" "}
            </a>by Michaela Kovacova hosted on <a href="https://happy-wing-013044.netlify.app" target="_blank"rel="noreferrer">Netlify</a>
         </div>
