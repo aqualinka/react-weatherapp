@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
+import Loader from "react-loader-spinner";
 
 export default function Weather(props) {
     const [city, setCity] = useState(props.defaultCity);
@@ -72,7 +73,11 @@ export default function Weather(props) {
     );
   } else{
     search();
-    return "Loading...";
+    return (
+      <div className="text-center pt-3">Loading...
+          <Loader type="BallTriangle" color="#00BFFF" height={40} width={40} />
+      </div>
+    );
   }
     
   
