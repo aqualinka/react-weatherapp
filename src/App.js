@@ -11,7 +11,7 @@ export default function App() {
         <div className="coder text-center">        
           <a href="https://github.com/aqualinka/react-weatherapp" target="_blank" rel="noreferrer">open-source-code
           {" "}<GoMarkGithub />{" "}
-           </a>by Michaela Kovacova and hosted on <a href="https://happy-wing-013044.netlify.app" target="_blank"rel="noreferrer">Netlify</a>
+           </a>by Michaela Kovacova hosted on <a href="https://happy-wing-013044.netlify.app" target="_blank"rel="noreferrer">Netlify</a>
         </div>
       </div>
     </div>
