@@ -1,6 +1,9 @@
 .WeatherForecast{
     font-size: 12px;   
+    border: 1px solid blue; 
+    display: inline-block;
 }
 .forecast-temp-max{
     color:#1d5a3b;
+
 }
