@@ -15,26 +15,29 @@ export default function WeatherForecast(props){
      setForecast(response.data.daily);
         setLoaded(true);
     }
-
+function load(){
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&appid=728f15542e17d610b9afb1e420062506&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+}
    if(loaded){
     return (
         <div className="WeatherForecast py-2">
             <div className="row ">
                 {forecast.map(function(dailyForecast, index){
-                    if(index<5){
+                    if(index < 6 && index > 0){
                         return (
                     <div className="col text-center" key={index}>
                         <ForecastForDay data={dailyForecast} />
-                    </div>)} 
+                    </div>)} else{
+                        return null;
+                    }
                 })}
               
             </div>
         </div>
     );
    } else {
-   
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&appid=728f15542e17d610b9afb1e420062506&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+    load(); 
     return null;
 }
 
