@@ -8,17 +8,22 @@ export default function WeatherForecast(props){
     const [forecast,setForecast]=useState(null);
 
     function handleResponse(response){
+     setForecast(response.data.daily);
         setLoaded(true);
-        setForecast(response.data.daily);
     }
 
    if(loaded){
     return (
         <div className="WeatherForecast py-2">
             <div classname="row">
-                <div className="col text-center">
-                    <ForecastForDay data={forecast[0]}/>
-                </div>
+                {forecast.map(function(dailyForecast, index){
+                    if(index<5){
+                        return (
+<div className="col text-center" key={index}>
+  <ForecastForDay data={dailyForecast} />
+</div>)}
+                })}
+              
             </div>
         </div>
     );
